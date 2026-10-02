@@ -82,7 +82,7 @@ export default function Produtos() {
                   <td>{produto.preco}</td>
                   <td>{produto.estoque}</td>
                   <td> 
-                    <Link to={`/editar-produtos/${produto.id}`}> <Editar/> </Link>
+                    <Link to={`/editar-produto/${produto.id}`}> <Editar/> </Link>
                     | 
                     <Link to="#" onClick={() => handleDelete(produto.id)}><Deletar /></Link>
                     </td>
