@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import type { TipoProduto } from "../Produtos";
 
 const listaProdutos = [
 
@@ -8,16 +9,17 @@ const listaProdutos = [
   {id: 3, nome: "Produto-3", preco: 132.40 },
 ];
 
-export default function EditarProdutos() {
-  document.title = "Editar Produtos";
+export default function EditarProduto() {
+  document.title = "Editar Produto";
+
+  const navigate useNavigate 
 
   const { id } = useParams<{id:string}>();
 
-  const [produto, setProduto] = useState<{ id: number, nome: string, preco: number }>({} as { id: number, nome: string, preco: number });
+  const [produto, setProduto] = useState<TipoProduto>({} as { id:"",nome:"",preco:0,estoque:0 });
 
   useEffect( ()=> {
-    const produtoEncontrado = listaProdutos.find( (p)=> p.id ===  Number(id) );
-    setProduto(produtoEncontrado!);
+
   },[]);
 
   return (
