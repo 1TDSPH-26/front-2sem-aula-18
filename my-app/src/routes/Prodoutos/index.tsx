@@ -76,7 +76,7 @@ export default function Produtos() {
                                 <td>{prod.preco}</td>
                                 <td>{prod.estoque}</td>
                                 <td>
-                                    <Link to={`/editar-produtos/${prod.id}`}> <FaEdit/> | </Link>
+                                    <Link to={`/editar-produto/${prod.id}`}> <FaEdit/> | </Link>
                                     <Link to="#" onClick={() => handleDelete(prod.id)} > <FaRegTrashAlt/> </Link>
                                     </td>
                             </tr>
