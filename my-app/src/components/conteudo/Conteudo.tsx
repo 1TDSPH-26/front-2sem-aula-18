@@ -4,7 +4,7 @@ import imgQuadrada from "../../img/quadrado.png";
 
 export default function Conteudo() {
 
-  let nome: string | null = "Cadu";
+  let nome: string | null = "Alê";
 
   const [nomeState, setNomeState] = useState<string | null>("Joel");
 
@@ -17,7 +17,6 @@ export default function Conteudo() {
     const nome: string | null = prompt("digite seu nome:")
     setNomeState((nomeStateAnterior) => nomeStateAnterior = nome);
     console.log("Nome digitado: ", nomeState);
-
   }
 
   return (
