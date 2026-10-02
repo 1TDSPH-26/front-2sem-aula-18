@@ -55,7 +55,7 @@ export default function Produtos() {
       console.error(error);
     }
   }
-
+ 
   return (
     <main>
       <h2>Produtos</h2>
@@ -78,7 +78,7 @@ export default function Produtos() {
                 <td>{produto.preco}</td>
                 <td>{produto.estoque}</td>
                 <td>
-                  <Link to={`/editar-produtos/${produto.id}`}> <Editar /> </Link>
+                  <Link to={`/editar-produto/${produto.id}`}> <Editar /> </Link>
                   |
                   <Link to="#" onClick={() => handleDelete(produto.id)}><Excluir /></Link>
                 </td>
