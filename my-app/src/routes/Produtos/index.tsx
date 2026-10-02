@@ -86,7 +86,7 @@ export default function Produtos() {
                 <td>{produto.estoque}</td>
 
                 <td>
-                  <Link to={`/editar-produtos/${produto.id}`}>
+                  <Link to={`/editar-produto/${produto.id}`}>
                     <Editar />
                   </Link>
 
