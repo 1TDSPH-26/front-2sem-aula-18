@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import type { tipoProduto } from "../../types/tipoProduto";
 
 
@@ -7,17 +7,34 @@ import type { tipoProduto } from "../../types/tipoProduto";
 export default function EditarProdutos() {
     document.title = "Editar Produto";
 
+    const navigate = useNavigate()
+
     const { id } = useParams<{ id: string }>();
 
     const [produto, setProduto] = useState<tipoProduto>({ id: "", nome: "", preco: 0, estoque: 0 });
 
     
     useEffect(() => {
+        const carregarProduto = async () => {
 
-        const produtoEncontrado = listaProdutos.find((p) => p.id === Number(id));
+        try {
+            
+            const response = await fetch(`http://localhost:3001/produtos/${id}`) 
 
-        setProduto(produtoEncontrado!);
+            if (!response.ok) {
+                throw new Error(`Erro na recuperação do produto: ${response.status} - ${response.statusText}`);
+            }
 
+            const data: tipoProduto = await response.json();
+            setProduto(data);
+
+        } catch (error) {
+            console.error(error);
+        }
+
+        }
+
+        carregarProduto()
     }, []);
 
 
@@ -25,20 +42,16 @@ export default function EditarProdutos() {
     return (
         <main>
             <h2>Editar Produtos</h2>
-            <p>ID : {id}</p>
-
             <div>
-
-                {produto ?
-                    (
+                <form>
+                    <fieldset>
+                        <legend>Dados do Produto</legend>
                         <div>
-                            <p>Nome : {produto.nome}</p>
-                            <p>Preço: {produto.preco}</p>
+                            <label htmlFor="nome">Nome do produto</label>
+                            <input type="text" name="nome" id="nome" value={produto.nome} onChange={(e) => setProduto({...produto,nome: e.target.value})}/>
                         </div>
-                    ) :
-                    (<p>Produto não encontrado!</p>)
-                }
-
+                    </fieldset>
+                </form>
             </div>
 
         </main>

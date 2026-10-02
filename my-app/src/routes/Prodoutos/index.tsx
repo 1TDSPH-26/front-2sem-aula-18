@@ -9,6 +9,8 @@ import { FaRegTrashAlt } from "react-icons/fa";
 export default function Produtos() {
     document.title = "Produtos";
 
+    
+
     const navigate = useNavigate()
 
 
