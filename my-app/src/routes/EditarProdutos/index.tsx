@@ -49,8 +49,22 @@ export default function EditarProduto() {
               <legend>Dados do produto</legend>
               <div>
                 <label htmlFor="nome">Nome do produto</label>
-                <input type="text" name="nome" id="nome" value={produto.nome} />
+                <input type="text" name="nome" id="nome" value={produto.nome} onChange={(event)=> setProduto({...produto,nome:event.target.value})}/>
+                <p>{produto.nome}</p>
               </div>
+            <div>
+              <label htmlFor="preco">Preço do produto</label>
+              <input type="number" name="preco" id="preco" value={produto.preco} onChange={(event) => setProduto({
+                ...produto, preco: Number(event.target.value)})} />
+              <p>{produto.preco}</p>
+            </div>
+            <div>
+              <label htmlFor="estoque">Estoque</label>
+              <input type="number" name="estoque" id="estoque" value={produto.estoque} onChange={(event) => setProduto({
+                ...produto, estoque: Number(event.target.value)
+              })} />
+              <p>{produto.estoque}</p>
+            </div>
             </fieldset>
           </form>
         </div>
