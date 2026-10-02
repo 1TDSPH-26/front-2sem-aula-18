@@ -15,8 +15,8 @@
     {
       "id": "3",
       "nome": "Teclado",
-      "preco": 210,
-      "estoque": 8
+      "preco": 200,
+      "estoque": 25
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

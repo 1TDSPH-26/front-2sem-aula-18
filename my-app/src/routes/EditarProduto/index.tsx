@@ -1,0 +1,54 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import type { TipoProduto } from "../../types/types";
+
+
+
+export default function EditarProduto() {
+    document.title = "Editar Produto";
+
+    const { id } = useParams<{ id: string }>();
+
+    const [produto, setProduto] = useState<TipoProduto>({ id: "" , nome: "", preco: 0, estoque: 0});
+
+    useEffect(() => {
+        const carregaProduto = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/produtos/${id}`)
+
+                if (!response.ok) {
+                    throw new Error(`Erro na recuperação do produto: ${response.status} - ${response.statusText}`)
+                }
+
+                const data: TipoProduto = await response.json();
+                setProduto(data);
+
+            } catch (error) {
+                console.error(error)
+            }
+            //useeffect ele renderiza o componente uma vez (passando por parametros da para fazer mais vezes)
+        }
+        carregaProduto();
+
+        //para casa, preencher os demais campos conforme o campo nome!!
+        //atenção aos campos numericos, pois podem precisar de parse
+    }, []);
+
+    return (
+        <main>
+            <h2>Editar Produto</h2>
+
+            <div>
+                <form >
+                    <fieldset>
+                        <legend>Dados do Produto</legend>
+                        <div>
+                            <label htmlFor="nome">Nome do Produto:</label>
+                            <input type="text" name="nome" id="nome" value={produto.nome} onChange={(event)=> setProduto({...produto, nome:event.target.value})}/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+    );
+}
