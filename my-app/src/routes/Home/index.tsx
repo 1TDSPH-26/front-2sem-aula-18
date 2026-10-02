@@ -40,7 +40,7 @@ export default function Home() {
 
   async function loadingData() {
     try{
-      const response = await fetch(" https://api.github.com/users");
+      const response = await fetch("https://api.github.com/users");
       
       if(!response.ok){
           throw new Error("A listagem dos usuários falhou!");
