@@ -6,8 +6,8 @@ export default function App() {
   return (
     <div>
       <Cabecalho />
-      <Outlet/>
-      <Rodape/>
+      <Outlet />
+      <Rodape />
     </div>
   )
 }

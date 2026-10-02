@@ -1,12 +1,6 @@
 {
   "produtos": [
     {
-      "id": "1",
-      "nome": "Notebook",
-      "preco": 3500,
-      "estoque": 10
-    },
-    {
       "id": "2",
       "nome": "Mouse",
       "preco": 120,
@@ -20,8 +14,8 @@
     },
     {
       "id": "4",
-      "nome": "Cadeira Gamer",
-      "preco": 1568,
+      "nome": "Cadeira gamer",
+      "preco": "1568",
       "estoque": 3
     }
   ],
