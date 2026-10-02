@@ -4,7 +4,7 @@ import App from './App.tsx'
 
 import Home from './routes/Home'
 import Produtos from './routes/Produtos/index.tsx'
-import EditarProdutos from './routes/EditarProdutos/index.tsx'
+import EditarProduto from './routes/EditarProduto/index.tsx'
 import Error from './routes/Error/index.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/produtos", element: <Produtos /> },
-      { path: "/editar-produtos/:id", element: <EditarProdutos /> }
+      { path: "/editar-produtos/:id", element: <EditarProduto /> }
     ]
   }
 ]);

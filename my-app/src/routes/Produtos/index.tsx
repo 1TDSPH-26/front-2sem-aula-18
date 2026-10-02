@@ -51,7 +51,7 @@ export default function Produtos(){
         <main>
             <h2>Produtos</h2>
             <div>
-                <table border={1} style={{borderCollapse:"collapse"}}>
+                <table border={2} style={{borderCollapse:"collapse", width:"70%", margin:"0 auto"}}>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -69,7 +69,7 @@ export default function Produtos(){
                                 <td>{produto.preco}</td>
                                 <td>{produto.estoque}</td>
                                 <td>
-                                    <Link to={`/editar-produtos/${produto.id}`}> <Editar/> </Link>
+                                    <Link to={`/editar-produto/${produto.id}`}> <Editar/> </Link>
                                     /
                                     <Link to="#" onClick={()=> handleDelete(produto.id)}> <Excluir/> </Link>
                                 </td>
